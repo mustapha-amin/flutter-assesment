@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_assesment/core/assets.dart';
 import 'package:flutter_assesment/models/doctor.dart';
+import 'package:flutter_svg/svg.dart';
 
 class DoctorsSection extends StatelessWidget {
   DoctorsSection({super.key});
@@ -44,16 +45,30 @@ class DoctorsSection extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Nearest Doctors"),
+                Text(
+                  "Nearest Doctors",
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
                 TextButton.icon(
                   onPressed: () {},
-                  label: Text("See All"),
-                  icon: Icon(Icons.arrow_forward_ios),
+                  label: Text(
+                    "See All",
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xff0A61B4),
+                    ),
+                  ),
+                  icon: Icon(Icons.arrow_forward_ios, color: Color(0xff0A61B4)),
                   iconAlignment: IconAlignment.end,
                 ),
               ],
             ),
             Column(
+              spacing: 15,
               children: [
                 ...doctors.map((doctor) {
                   return DoctorCard(doctor: doctor);
@@ -86,10 +101,23 @@ class _DoctorCardState extends State<DoctorCard> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(14),
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(0, 2),
+            color: Colors.black.withValues(alpha: .1),
+            blurRadius: 8,
+          ),
+        ],
+      ),
+      padding: EdgeInsets.all(16),
       child: Column(
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             spacing: 10,
             children: [
               CircleAvatar(backgroundImage: AssetImage(doctor!.image)),
@@ -97,13 +125,41 @@ class _DoctorCardState extends State<DoctorCard> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(doctor!.name),
-                    Text("${doctor?.specialization} | ${doctor?.years}"),
+                    Text(
+                      doctor!.name,
+                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      "${doctor?.specialization} | ${doctor?.years}",
+                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    SizedBox(height: 5),
                     Row(
                       children: [
-                        Text("${doctor?.rating}"),
+                        Text(
+                          "${doctor?.rating}",
+                          style: Theme.of(context).textTheme.titleLarge!
+                              .copyWith(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
+                        ),
                         Icon(Icons.star, color: Colors.amber),
-                        Text("${doctor?.reviews} Reviews"),
+
+                        Text(
+                          "${doctor?.reviews} Reviews",
+                          style: Theme.of(context).textTheme.titleLarge!
+                              .copyWith(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                              ),
+                        ),
                       ],
                     ),
                   ],
@@ -118,19 +174,65 @@ class _DoctorCardState extends State<DoctorCard> {
                 icon: Icon(
                   doctor!.liked ? Icons.favorite : Icons.favorite_border,
                 ),
-                color: Colors.red,
+                color: doctor!.liked ? Colors.red : Colors.grey[500],
               ),
             ],
           ),
+          SizedBox(height: 20),
           Row(
+            spacing: 25,
             children: [
-              Row(children: [Icon(Icons.calendar_month), Text("Tomorrow")]),
-              Row(children: [Icon(Icons.alarm), Text("10:30am-05:00pm")]),
+              Row(
+                spacing: 5,
+                children: [
+                  SvgPicture.asset(SVGAssets.calender, height: 20),
+                  Text(
+                    "Tomorrow",
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                      fontSize: 14,
+                      color: Color(0xff0A61B4),
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                spacing: 5,
+                children: [
+                  Icon(Icons.access_time, size: 20, color: Color(0xff0A61B4)),
+                  Text(
+                    "10:30am-05:00pm",
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                      fontSize: 14,
+                      color: Color(0xff0A61B4),
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20.0),
+            child: Divider(color: Colors.grey[300]),
+          ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Row(children: [Icon(Icons.alarm), Text("10:30am-05:00pm")]),
+              Row(
+                spacing: 5,
+                children: [
+                  SvgPicture.asset(SVGAssets.location, height: 20),
+                  Text(
+                    "Horizon Medical Center",
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                      fontSize: 14,
+                      color: Color(0xff20976C),
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
               Text("2km Away"),
             ],
           ),
