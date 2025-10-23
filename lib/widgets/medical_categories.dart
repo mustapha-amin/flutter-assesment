@@ -27,15 +27,29 @@ class MedicalCategories extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Categories"),
+                Text(
+                  "Categories",
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
                 TextButton.icon(
                   onPressed: () {},
-                  label: Text("See All"),
-                  icon: Icon(Icons.arrow_forward_ios),
+                  label: Text(
+                    "See All",
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Color(0xff0A61B4),
+                    ),
+                  ),
+                  icon: Icon(Icons.arrow_forward_ios, color: Color(0xff0A61B4)),
                   iconAlignment: IconAlignment.end,
                 ),
               ],
             ),
+            SizedBox(height: 25),
             SimpleGrid(
               gap: 15,
               columns: 4,
@@ -60,7 +74,7 @@ class CategoryGridItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ColoredBg(
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 13),
+      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 15),
       child: Column(children: [SvgPicture.asset(icon), Text(title)]),
     );
   }
