@@ -14,6 +14,8 @@ class SVGAssets {
   static const String skin = 'assets/svgs/skin.svg';
   static const String stethoscope = 'assets/svgs/stethoscope.svg';
   static const String stomach = 'assets/svgs/stomach.svg';
+  static const String calender = 'assets/svgs/calender.svg';
+  static const String location = 'assets/svgs/location.svg';
 }
 
 class PNGAssets {
