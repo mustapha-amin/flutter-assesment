@@ -8,12 +8,16 @@ class AppointmentQuickActionCard extends StatelessWidget {
   final String title;
   final String subtitle;
   final Color color;
+  final Color borderColor;
+  final Color iconBgColor;
 
   const AppointmentQuickActionCard({
     required this.icon,
     required this.title,
     required this.subtitle,
     required this.color,
+    required this.borderColor,
+    required this.iconBgColor,
     super.key,
   });
 
@@ -29,7 +33,17 @@ class AppointmentQuickActionCard extends StatelessWidget {
         spacing: 8,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SvgPicture.asset(icon),
+          Container(
+            width: 45,
+            height: 45,
+            padding: EdgeInsets.all(5),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: iconBgColor,
+              border: Border.all(color: borderColor),
+            ),
+            child: SvgPicture.asset(icon),
+          ),
           SizedBox(height: 15),
           Text(
             title,

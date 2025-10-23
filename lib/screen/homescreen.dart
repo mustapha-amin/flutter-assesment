@@ -61,6 +61,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     title: "Book Doctor Apppointment",
                     subtitle: "Find a Doctor or Specialist",
                     color: Color(0xffF9F5FF),
+                    iconBgColor: Color(0xffE7EFFF),
+                    borderColor: Color(0xffA0B6EA),
                   ),
                 ),
                 Expanded(
@@ -69,6 +71,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     title: "Book Hospital Appointment",
                     subtitle: "Locate nearby hospital to visit",
                     color: Color(0xffEDFCF2),
+                    iconBgColor: Color(0xffD3F8DF),
+                    borderColor: Color(0xffAAF0C4),
                   ),
                 ),
               ],
