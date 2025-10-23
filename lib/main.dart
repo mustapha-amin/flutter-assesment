@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_assesment/core/theme.dart';
 import 'package:flutter_assesment/screen/homescreen.dart';
 
 void main(List<String> args) {
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: HomeScreen(),
+      theme: AppTheme.lightTheme,
     );
   }
 }
