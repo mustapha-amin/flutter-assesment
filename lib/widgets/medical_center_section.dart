@@ -105,11 +105,21 @@ class _MedicalCenterState extends State<MedicalCenter> {
                 Positioned(
                   top: 8,
                   right: 8,
-                  child: ColoredBg(
-                    padding: EdgeInsets.all(5),
-                    borderRadius: 6,
-                    color: Colors.black.withValues(alpha: .3),
-                    child: Icon(Icons.favorite_border, color: Colors.white),
+                  child: InkWell(
+                    onTap: () {
+                      setState(() {
+                        liked = !liked;
+                      });
+                    },
+                    child: ColoredBg(
+                      padding: EdgeInsets.all(5),
+                      borderRadius: 6,
+                      color: Colors.black.withValues(alpha: .3),
+                      child: Icon(
+                        liked ? Icons.favorite : Icons.favorite_border,
+                        color: liked ? Colors.red : Colors.white,
+                      ),
+                    ),
                   ),
                 ),
               ],
