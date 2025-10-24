@@ -19,7 +19,7 @@ class ColoredBg extends StatelessWidget {
     return Container(
       padding: padding,
       decoration: BoxDecoration(
-        color: color ?? Color(0xFFF7F8FB), // accurate subtle grey from the UI
+        color: color ?? Color(0xFFF7F8FB),
         borderRadius: BorderRadius.circular(borderRadius),
       ),
       child: child,
