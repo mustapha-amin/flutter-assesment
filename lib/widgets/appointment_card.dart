@@ -16,16 +16,16 @@ class AppointmentCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
+            color: Colors.grey.withValues(alpha: .3),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
         ],
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Doctor Info Section
           Container(
             decoration: BoxDecoration(
               color: Colors.white,
@@ -36,12 +36,10 @@ class AppointmentCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               spacing: 10,
               children: [
-                // Doctor Avatar Placeholder
                 CircleAvatar(
-                  backgroundImage: AssetImage(PNGAssets.clark),
+                  backgroundImage: AssetImage(PNGAssets.jason),
                   radius: 22,
                 ),
-                // Doctor Details
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,7 +62,6 @@ class AppointmentCard extends StatelessWidget {
 
           const SizedBox(height: 30),
 
-          // Date Section
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -87,7 +84,6 @@ class AppointmentCard extends StatelessWidget {
 
                   const SizedBox(height: 12),
 
-                  // Time Section
                   Row(
                     children: [
                       Icon(Icons.access_time, size: 18, color: Colors.white),

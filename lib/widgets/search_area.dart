@@ -24,7 +24,7 @@ class SearchArea extends StatelessWidget {
               ).wsp,
               textStyle: Theme.of(
                 context,
-              ).textTheme.bodyMedium!.copyWith(color: Colors.grey).wsp,
+              ).textTheme.bodyMedium!.copyWith(color: Colors.black).wsp,
               hintText: "Search",
               hintStyle: Theme.of(
                 context,

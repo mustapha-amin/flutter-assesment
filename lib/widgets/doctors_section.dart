@@ -39,42 +39,39 @@ class DoctorsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      spacing: 10,
       children: [
-        Column(
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Nearest Doctors",
-                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                TextButton.icon(
-                  onPressed: () {},
-                  label: Text(
-                    "See All",
-                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: Color(0xff0A61B4),
-                    ),
-                  ),
-                  icon: Icon(Icons.arrow_forward_ios, color: Color(0xff0A61B4)),
-                  iconAlignment: IconAlignment.end,
-                ),
-              ],
+            Text(
+              "Nearest Doctors",
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+              ),
             ),
-            Column(
-              spacing: 15,
-              children: [
-                ...doctors.map((doctor) {
-                  return DoctorCard(doctor: doctor);
-                }),
-              ],
+            TextButton.icon(
+              onPressed: () {},
+              label: Text(
+                "See All",
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xff0A61B4),
+                ),
+              ),
+              icon: Icon(Icons.arrow_forward_ios, color: Color(0xff0A61B4)),
+              iconAlignment: IconAlignment.end,
             ),
+          ],
+        ),
+        Column(
+          spacing: 15,
+          children: [
+            ...doctors.map((doctor) {
+              return DoctorCard(doctor: doctor);
+            }),
           ],
         ),
       ],

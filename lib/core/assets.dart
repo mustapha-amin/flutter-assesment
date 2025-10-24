@@ -23,4 +23,5 @@ class PNGAssets {
   static const String hospital = 'assets/images/hospital.png';
   static const String white = 'assets/images/white.png';
   static const String wilson = 'assets/images/wilson.png';
+  static const String jason = 'assets/images/jason.png';
 }

@@ -9,6 +9,7 @@ class MedicalCentersSection extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Column(
+      spacing: 10,
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 20),
@@ -41,12 +42,14 @@ class MedicalCentersSection extends StatelessWidget {
         SizedBox(
           height: 280,
           child: ListView(
+            shrinkWrap: true,
+            padding: EdgeInsets.only(bottom: 10),
             scrollDirection: Axis.horizontal,
             children: [
               SizedBox(width: 20),
               ...List.generate(4, (_) {
                 return SizedBox(
-                  width: size.width * .55,
+                  width: size.width * .52,
                   child: MedicalCenter(),
                 );
               }),
@@ -73,6 +76,7 @@ class _MedicalCenterState extends State<MedicalCenter> {
     return Container(
       margin: EdgeInsets.only(right: 15),
       padding: EdgeInsets.all(12),
+      clipBehavior: Clip.none,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),

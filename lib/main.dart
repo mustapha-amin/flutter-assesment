@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_assesment/core/theme.dart';
 import 'package:flutter_assesment/screen/homescreen.dart';
 
 void main(List<String> args) {
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(systemNavigationBarColor: Colors.transparent),
+  );
   runApp(MyApp());
 }
 

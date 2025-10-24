@@ -21,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: Color(0xff0A61B4),
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -42,6 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(26),
               ),
+              clipBehavior: Clip.none,
               child: Column(
                 children: [
                   Container(
@@ -58,20 +60,28 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Column(
                       children: [
                         SearchArea(),
-                        SizedBox(height: 25),
-                        SizedBox(
-                          height: 200,
-                          child: PageView.builder(
-                            itemCount: 3,
-                            onPageChanged: (index) {
-                              setState(() {
-                                currentPage = index;
-                              });
-                            },
-                            itemBuilder: (context, index) {
-                              return AppointmentCard();
-                            },
-                          ),
+                        SizedBox(height: 20),
+                        LayoutBuilder(
+                          builder: (context, constraints) {
+                            return SizedBox(
+                              height: 220,
+                              child: PageView.builder(
+                                itemCount: 3,
+                                physics: BouncingScrollPhysics(),
+                                onPageChanged: (index) {
+                                  setState(() {
+                                    currentPage = index;
+                                  });
+                                },
+                                itemBuilder: (context, index) {
+                                  return Padding(
+                                    padding: const EdgeInsets.only(top: 10.0),
+                                    child: AppointmentCard(),
+                                  );
+                                },
+                              ),
+                            );
+                          },
                         ),
                         SizedBox(height: 10),
                         SizedBox(
@@ -116,6 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                   ),
+                  SizedBox(height: 10),
                   MedicalCentersSection(),
                   SizedBox(height: 50),
                 ],
