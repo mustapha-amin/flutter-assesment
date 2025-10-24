@@ -13,18 +13,22 @@ class SearchArea extends StatelessWidget {
     return Row(
       spacing: 10,
       children: [
-        // Search bar section
         Expanded(
           flex: 4,
           child: SizedBox(
             height: 64,
             child: SearchBar(
-              padding: EdgeInsets.all(20).wsp,
+              padding: EdgeInsets.symmetric(horizontal: 20).wsp,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(14),
               ).wsp,
+              textStyle: Theme.of(
+                context,
+              ).textTheme.bodyMedium!.copyWith(color: Colors.grey).wsp,
               hintText: "Search",
-              hintStyle: Theme.of(context).textTheme.bodyMedium.wsp,
+              hintStyle: Theme.of(
+                context,
+              ).textTheme.bodyMedium!.copyWith(color: Colors.black).wsp,
               onTapOutside: (_) => FocusScope.of(context).unfocus(),
               backgroundColor: AppColors.lightGrey.wsp,
               elevation: 0.0.wsp,
@@ -44,7 +48,7 @@ class SearchArea extends StatelessWidget {
               width: 13,
               height: 13,
               colorFilter: const ColorFilter.mode(
-                Color(0xFF0056D2), // same blue tint as screenshot
+                Color(0xFF0056D2),
                 BlendMode.srcIn,
               ),
             ),
@@ -54,5 +58,3 @@ class SearchArea extends StatelessWidget {
     );
   }
 }
-
-/// Reusable grey background widget
